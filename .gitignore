@@ -1,12 +1,12 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-angular/src/main/angular/dist
-angular/src/main/angular/tmp
-angular/src/main/out-tsc
+**/dist
+**/tmp
+**/out-tsc
 
 # dependencies
-angular/src/main/angular/node_modules
+**/node_modules
 
 # profiling files
 **/chrome-profiler-events.json
