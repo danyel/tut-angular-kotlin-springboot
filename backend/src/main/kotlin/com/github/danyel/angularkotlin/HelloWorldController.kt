@@ -15,4 +15,24 @@ class HelloWorldController {
     }
 }
 
-data class HelloWorld(val hello: String)
+data class HelloWorld(val hello: String){
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as HelloWorld
+
+        if (hello != other.hello) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return hello.hashCode()
+    }
+
+    override fun toString(): String {
+        return "HelloWorld(hello='$hello')"
+    }
+}
