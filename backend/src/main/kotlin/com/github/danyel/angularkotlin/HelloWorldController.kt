@@ -13,9 +13,25 @@ class HelloWorldController {
     fun hello(): ResponseEntity<HelloWorld> {
         return ResponseEntity(HelloWorld("hello"), HttpStatus.ACCEPTED)
     }
+
+    val sexy: ResponseEntity<HelloWorld>
+        @GetMapping(path = ["world"]) get() {
+            return ResponseEntity(HelloWorld("hello"), HttpStatus.ACCEPTED)
+        }
 }
 
-data class HelloWorld(val hello: String){
+class HelloWorld {
+    var world: HelloWorld? = null
+    var hello: String
+
+    constructor() {
+        this.hello = "world"
+    }
+
+    constructor(hello: String) : this() {
+        this.hello = hello
+        this.world = HelloWorld()
+    }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

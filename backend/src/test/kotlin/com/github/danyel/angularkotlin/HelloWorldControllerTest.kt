@@ -21,5 +21,19 @@ class HelloWorldControllerTest {
         assertThat(helloResponse).isNotNull
         assertThat(helloResponse.statusCode).isEqualTo(HttpStatus.ACCEPTED)
         assertThat(helloResponse.body).isEqualTo(HelloWorld("hello"))
+
+        // the horror
+        assertThat(helloWorldController.hello().body?.world?.hello).isEqualTo("world")
+    }
+
+    @Test
+    fun sexy() {
+        val helloResponse = helloWorldController.sexy
+        assertThat(helloResponse).isNotNull
+        assertThat(helloResponse.statusCode).isEqualTo(HttpStatus.ACCEPTED)
+        assertThat(helloResponse.body).isEqualTo(HelloWorld("hello"))
+
+        // the horror
+        assertThat(helloWorldController.hello().body?.world?.hello).isEqualTo("world")
     }
 }
